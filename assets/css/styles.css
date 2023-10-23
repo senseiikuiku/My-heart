@@ -1,0 +1,77 @@
+html,
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+}
+
+#myAudio {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: linear-gradient(45deg, red, gold, lightgreen, gold, red);
+    width: 300px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.neon {
+    position: relative;
+    overflow: hidden;
+    filter: brightness(200%);
+}
+.chu {
+    background-color: #000;
+    color: white;
+    font-family: sans-serif;
+    font-size: 50px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    animation-name: glow;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    white-space: nowrap;
+    position: relative;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 0px #ffffff, 0 0 0px #00ff00, 0 0 10px #00ff00;
+    }
+    50% {
+        text-shadow: 0 0 0px #ffffff, 0 0 0px #ff6600, 0 0 10px #ff6600;
+    }
+    100% {
+        text-shadow: 0 0 0px #ffffff, 0 0 0px #00ff00, 0 0 10px #00ff00;
+    }
+}
+
+.chu::before {
+    content: attr(data-text);
+    position: absolute;
+    filter: blur(0.02em);
+    color: white;
+    mix-blend-mode: difference;
+}
+
+.gradient {
+    position: absolute;
+    background: linear-gradient(45deg, red, gold, lightgreen, gold, red);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mix-blend-mode: multiply;
+}
